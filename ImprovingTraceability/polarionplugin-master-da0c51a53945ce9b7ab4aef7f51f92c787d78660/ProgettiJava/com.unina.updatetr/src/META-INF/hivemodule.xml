@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<module id="com.unina.updatetr" version="1.0.0">
+		
+		<service-point id="updateTr" interface="com.polarion.platform.jobs.IJobUnitFactory"> 
+		<invoke-factory>
+			<construct class="com.unina.updatetr.UpdateTr">
+			</construct>
+		</invoke-factory>
+		</service-point>
+		<contribution configuration-id="com.polarion.platform.jobs.configuration">
+			<jobUnitFactory name="updatetr" factory="updateTr"/> 
+		</contribution>
+		
+		<service-point id="myTestManagementService"
+			interface="com.polarion.alm.tracker.ITestManagementService">
+			<invoke-factory>
+			<construct class="com.polarion.alm.tracker.internal.TestManagementService">
+			</construct>
+			</invoke-factory>
+		</service-point>
+		
+		<service-point id="myJobService"
+			interface="com.polarion.platform.jobs.IJobUnitFactory">
+			<invoke-factory>
+			<construct class="com.polarion.platform.jobs.spi.GenericJobUnitFactory">
+			</construct>
+			</invoke-factory>
+		</service-point>
+		
+	</module>

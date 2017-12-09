@@ -1,0 +1,28 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+     
+	<f:entry title="Path Shared Folder" field="sharedpath">
+	<f:textbox />
+	</f:entry> 
+	<f:entry title="Username Shared Folder" field="shareduser">
+	<f:textbox />
+	</f:entry> 
+	<f:entry title="Password Shared Folder" field="sharedpasswd">
+	<f:password />
+	</f:entry>
+	<f:entry title="Polarion Server Address"  field="address">
+	<f:textbox />
+	</f:entry>
+	<f:entry title="Polarion Username"  field="username">
+	<f:textbox />
+	</f:entry>
+	<f:entry title="Polarion Password" field="password">
+	<f:password />
+	</f:entry>
+	 <f:entry title="Path Progetti Mx" field="mxpath">
+	   <f:textbox />
+	 </f:entry> 
+	 <f:entry title="Scenario" field="scenario">
+	   <f:checkbox />
+	 </f:entry> 
+</j:jelly>

@@ -1,0 +1,4 @@
+com\unina\plugins\jenk\PJMasterPlugin.stapler
+com\unina\plugins\jenk\PJMasterPlugin.class
+com\unina\plugins\jenk\PJMasterPlugin$DescriptorImpl.class
+META-INF\annotations\hudson.Extension

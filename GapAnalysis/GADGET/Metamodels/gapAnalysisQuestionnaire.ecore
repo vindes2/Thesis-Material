@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gapAnalysisQuestionnaire" nsURI="http://www.example.org/gapAnalysisQuestionnaire"
+    nsPrefix="gapAnalysisQuestionnaire">
+  <eClassifiers xsi:type="ecore:EClass" name="Document_of_the_Standard">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
+        eType="#//Level"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="structuralElements" lowerBound="1"
+        upperBound="-1" eType="#//StructuralElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="standardCompliance" lowerBound="1"
+        eType="#//StandardCompliance"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" lowerBound="1"
+        upperBound="-1" eType="#//Requirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedElements" upperBound="-1"
+        eType="#//StructuralElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedElements" upperBound="-1"
+        eType="#//StructuralElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementCompliance" lowerBound="1"
+        eType="#//ElementCompliance"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
+        eType="#//Capability"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="questions" upperBound="-1"
+        eType="#//Question"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="identifiedGap" eType="#//Gap"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedRequirements"
+        upperBound="-1" eType="#//Requirement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedRequirements"
+        upperBound="-1" eType="#//Requirement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Level">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredApplicabilities"
+        upperBound="-1" eType="#//RequiredApplicability"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredApplicability">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" lowerBound="1"
+        eType="#//Requirement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Questionnaire">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
+        upperBound="-1" eType="#//Question" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="standard" lowerBound="1"
+        eType="#//Document_of_the_Standard"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goal" lowerBound="1" eType="#//Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="employee" eType="#//Employee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ratingMethod" eType="#//RatingMethod"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reports" lowerBound="1"
+        upperBound="-1" eType="#//Report"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Question">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Answer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evidences" upperBound="-1"
+        eType="#//Evidence"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Employee">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedQuestions" upperBound="-1"
+        eType="#//Question"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedRoles" lowerBound="1"
+        upperBound="-1" eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Evidence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StandardCompliance" eSuperTypes="#//Rating">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="#//Level"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//Rating"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementCompliance" eSuperTypes="#//Rating"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImprovementAction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Essay" eSuperTypes="#//Question">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="openAnswer" lowerBound="1"
+        eType="#//OpenAnswer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiChoice" eSuperTypes="#//Question">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closedAnswers" lowerBound="1"
+        upperBound="-1" eType="#//ClosedAnswer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenAnswer" eSuperTypes="#//Answer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClosedAnswer" eSuperTypes="#//Answer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rating">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ratingMethod" lowerBound="1"
+        eType="#//RatingMethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RatingMethod"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpertBased" eSuperTypes="#//RatingMethod"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FormulaBased" eSuperTypes="#//RatingMethod">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Report"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Gap">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="improvementActions" upperBound="-1"
+        eType="#//ImprovementAction"/>
+  </eClassifiers>
+</ecore:EPackage>

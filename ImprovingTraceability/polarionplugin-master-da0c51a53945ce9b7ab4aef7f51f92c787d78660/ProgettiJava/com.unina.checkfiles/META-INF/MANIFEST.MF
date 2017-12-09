@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Checkfiles
+Bundle-SymbolicName: com.unina.checkfiles
+Bundle-Version: 1.0.0
+Bundle-Vendor: UNINA
+Require-Bundle: com.polarion.alm.tracker;bundle-version="3.9.3",
+ com.polarion.platform.jobs;bundle-version="3.9.3"
+Bundle-ClassPath: checkfiles.jar
